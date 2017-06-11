@@ -16,6 +16,9 @@
     "mongodb",
     "api-generator"
   ],
+  "dependencies": {
+    "dotenv": "^2.0.0"
+  },
   "author": "Kunal Panchal",
   "license": "ISC",
   "bugs": {
