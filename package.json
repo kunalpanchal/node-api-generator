@@ -1,0 +1,25 @@
+{
+  "name": "node-api-generator",
+  "version": "1.0.0",
+  "description": "Nodejs and MongoDB based API boilerplate generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/kunalpanchal/node-api-generator.git"
+  },
+  "keywords": [
+    "nodejs",
+    "mongodb\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D-generator",
+    "mongodb",
+    "api-generator"
+  ],
+  "author": "Kunal Panchal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kunalpanchal/node-api-generator/issues"
+  },
+  "homepage": "https://github.com/kunalpanchal/node-api-generator#readme"
+}
