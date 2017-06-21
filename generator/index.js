@@ -67,14 +67,32 @@ function createProjectStructure(parent_dir) {
             fs.writeFile(path.join(dirName, 'test.js'));
         });
 
+        fs.mkdir(path.join(dirName, 'middlewares'), (dirName) => {
+            fs.writeFile(path.join(dirName, 'is-auth-api.js'));
+            fs.writeFile(path.join(dirName, 'is-authenticated.js'));
+            fs.writeFile(path.join(dirName, 'is-company-user.js'));
+        });
+
+        fs.mkdir(path.join(dirName, 'passport'), (dirName) => {
+            fs.writeFile(path.join(dirName, 'jwt.js'));
+            fs.writeFile(path.join(dirName, 'local.js'));
+            fs.writeFile(path.join(dirName, 'oauth2.js'));
+        });
+
         fs.mkdir(path.join(dirName, 'responses'), (dirName) => {
             fs.writeFile(path.join(dirName, 'index.js'));
             fs.writeFile(path.join(dirName, 'ok.js'));
             fs.writeFile(path.join(dirName, 'error.js'));
         });
 
+        fs.mkdir(path.join(dirName, 'seed'), (dirName) => {
+            fs.writeFile(path.join(dirName, 'index.js'));
+            fs.writeFile(path.join(dirName, 'users.js'));
+        });
+
         fs.mkdir(path.join(dirName, 'routes'), (dirName) => {
             fs.writeFile(path.join(dirName, 'index.js'));
+            fs.writeFile(path.join(dirName, 'router-configurator.js'));
             for (let i = 1; i <= data.numAPIversions; i++) {
                 fs.mkdir(path.join(dirName, 'v' + i), (dirName) => {
                     fs.writeFile(path.join(dirName, 'index.js'));
@@ -113,7 +131,7 @@ function createProjectStructure(parent_dir) {
             });
         });
 
-        fs.mkdir(path.join(dirName, 'service'), (dirName) => {
+        fs.mkdir(path.join(dirName, 'services'), (dirName) => {
             fs.writeFile(path.join(dirName, 'jwt.js'));
         });
     });
@@ -137,4 +155,11 @@ function createProjectStructure(parent_dir) {
         });
     });
     /* TEST directory -- END*/
+
+    /* LOG directory*/
+    fs.mkdir(path.join(parent_dir, 'logs'), (dirName) => {
+        fs.mkdir(path.join(dirName, 'errorLogs'));
+        fs.mkdir(path.join(dirName, 'requestLogs'));
+    });
+    /* LOG directory -- END*/
 }
