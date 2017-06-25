@@ -6,7 +6,7 @@ module.exports = `{
   "description": "`+ data.description + `",
   "main": "`+ data.entry_point + `",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "exit 1",
     "thecrawler": "node-dev server"
   },
   "repository": {

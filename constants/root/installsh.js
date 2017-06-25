@@ -1,0 +1,1 @@
+module.exports = `npm install\n$SHELL`

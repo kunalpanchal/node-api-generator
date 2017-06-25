@@ -44,6 +44,7 @@ function createProjectStructure(parent_dir) {
     fs.writeFile(path.join(parent_dir, '.env'), constants.env);
     fs.writeFile(path.join(parent_dir, 'README.md'), constants.readme);
     fs.writeFile(path.join(parent_dir, '.gitignore'), constants.gitignore);
+    fs.writeFile(path.join(parent_dir, 'install.sh'), constants.installsh);
     /* root directory files -- END*/
 
     /* CONFIG directory*/
