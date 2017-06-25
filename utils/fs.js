@@ -12,7 +12,7 @@ let self = module.exports = {
             fs.open(fileName, 'w', (err) => { logStatus(err, fileName); cb && cb(err); });
     },
     mkdir: (dirName, cb) => {
-        dirName && fs.mkdir(dirName, (err) => { logStatus(err, dirName + '/'); cb && cb(dirName, err); });
+        dirName && fs.mkdir(dirName, (err) => { logStatus(err); cb && cb(dirName, err); });
     },
     mkdirSync: (dirName) => {
         dirName && fs.mkdirSync(dirName);

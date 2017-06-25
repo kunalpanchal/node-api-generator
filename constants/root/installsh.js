@@ -1,1 +1,1 @@
-module.exports = `npm install\n$SHELL`
+module.exports = `npm install && exit`

@@ -12,14 +12,12 @@ module.exports = {
             env: process.env,
             detached: true
         });
-        let resp = '';
-        child.stdout.on('data', function (buffer) { resp += buffer.toString(); console.log(buffer.toString()); });
-        child.on('close', function () {
-            child.stdin.pause();
-            child.kill();
+        child.stdout.on('data', function (buffer) {
+            console.log('\x1b[33m' + buffer.toString());
         });
 
-        // child.unref()
-        console.log('Running *npm install* for you');
+
+        child.unref()
+        console.log('\nRunning' + '\x1b[31m npm install\x1b[0m' + ' for you\n');
     },
 }
