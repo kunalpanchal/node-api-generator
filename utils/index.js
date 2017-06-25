@@ -7,7 +7,6 @@ module.exports = {
     },
     npminstall: (req, res) => {
         let spawn = require('child_process').spawn;
-      console.log(process.cwd);
         let child = spawn('sh', ['./install.sh'], {
             cwd: process.cwd(),
             env: process.env,
@@ -16,7 +15,7 @@ module.exports = {
         let resp = '';
         child.stdout.on('data', function (buffer) { resp += buffer.toString(); console.log(buffer.toString()); });
         child.on('close', function () {
-            console.log('eeeeeeeeeeeeend', resp); child.stdin.pause();
+            child.stdin.pause();
             child.kill();
         });
 

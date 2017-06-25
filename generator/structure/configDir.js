@@ -4,9 +4,9 @@ const fs = require('./../../utils/fs');
 const constants = require('./../../constants')
 const path = require('path');
 
-module.exports = (parent_dir, data) => {
+module.exports = (data) => {
     return new Promise((resolve, reject) => {
-        fs.mkdir(path.join(parent_dir, 'config'), (dirName) => {
+        fs.mkdir(path.join('config'), (dirName) => {
             let configFiles = fs.createMultiFiles([
                 { fileName: path.join(dirName, 'express.js'), content: constants.config_express },
                 { fileName: path.join(dirName, 'db.js'), content: constants.config_db },
@@ -15,7 +15,7 @@ module.exports = (parent_dir, data) => {
                 { fileName: path.join(dirName, '.logging.js'), content: constants.config_logging },
                 { fileName: path.join(dirName, 'passport.js'), content: constants.config_passport }
             ]);
-            
+
             Promise.all([
                 subModules.constants(dirName),
                 subModules.env(dirName),

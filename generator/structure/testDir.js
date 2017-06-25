@@ -4,9 +4,9 @@ const fs = require('./../../utils/fs');
 const constants = require('./../../constants')
 const path = require('path');
 
-module.exports = (parent_dir, data) => {
+module.exports = (data) => {
     return new Promise((resolve, reject) => {
-        fs.mkdir(path.join(parent_dir, 'test'), (dirName) => {
+        fs.mkdir(path.join('test'), (dirName) => {
             fs.writeFile(path.join(dirName, '.gitkeep'));
             fs.writeFile(path.join(dirName, 'index.test.js'));
 

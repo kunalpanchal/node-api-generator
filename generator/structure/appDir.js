@@ -4,9 +4,9 @@ const fs = require('./../../utils/fs');
 const constants = require('./../../constants')
 const path = require('path');
 
-module.exports = (parent_dir, data) => {
+module.exports = (data) => {
     return new Promise((resolve, reject) => {
-        fs.mkdir(path.join(parent_dir, 'app'), (dirName) => {
+        fs.mkdir(path.join('app'), (dirName) => {
             Promise.all([subModules.controllers(dirName, data.numAPIversions),
             subModules.events(dirName),
             subModules.helpers(dirName),

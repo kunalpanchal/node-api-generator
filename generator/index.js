@@ -23,6 +23,7 @@ function createdirectory(dirName) {
         while (true) {
             try {
                 fs.mkdirSync(dirName + (suffix ? suffix : ''));
+                process.chdir(dirName + (suffix ? suffix : ''));
             } catch (err) {
                 if (err.code === 'EEXIST') {
                     suffix = suffix ? suffix + 1 : 1;
@@ -31,29 +32,27 @@ function createdirectory(dirName) {
             }
             break;
         }
-        return dirName + (suffix ? suffix : '');
     }
-    return dirName;
 }
 
-function createProjectStructure(parent_dir) {
+function createProjectStructure() {
     let appDir = require('./structure/appDir');
     let configDir = require('./structure/configDir');
     let logsDir = require('./structure/logsDir');
     let testDir = require('./structure/testDir');
     let rootFiles = fs.createMultiFiles([
-        { fileName: path.join(parent_dir, data.entry_point), content: constants.server },
-        { fileName: path.join(parent_dir, 'package.json'), content: constants.packagejson },
-        { fileName: path.join(parent_dir, '.env'), content: constants.env },
-        { fileName: path.join(parent_dir, 'README.md'), content: constants.readme },
-        { fileName: path.join(parent_dir, '.gitignore'), content: constants.gitignore },
-        { fileName: path.join(parent_dir, 'install.sh'), content: constants.installsh }
+        { fileName: path.join(data.entry_point), content: constants.server },
+        { fileName: path.join('package.json'), content: constants.packagejson },
+        { fileName: path.join('.env'), content: constants.env },
+        { fileName: path.join('README.md'), content: constants.readme },
+        { fileName: path.join('.gitignore'), content: constants.gitignore },
+        { fileName: path.join('install.sh'), content: constants.installsh }
     ]);
     Promise.all([
-        appDir(parent_dir, data),
-        configDir(parent_dir, data),
-        logsDir(parent_dir, data),
-        testDir(parent_dir, data),
+        appDir(data),
+        configDir(data),
+        logsDir(data),
+        testDir(data),
         rootFiles
     ])
         .then(() => { utils.npminstall(); })
