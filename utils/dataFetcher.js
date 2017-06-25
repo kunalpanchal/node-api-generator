@@ -11,10 +11,10 @@ const readA = readline.createInterface({
 
 module.exports = (cb) => {
     let q1 = () => readA.question('project name: (' + utils.getCurDirName() + ') ',
-        (answer) => { if (answer) data.projectName = answer; q2(); });
+        (answer) => { if (answer) data.projectName = answer; q3(); });
 
-    let q2 = () => readA.question('version: (1.0.0) ',
-        (answer) => { if (answer) data.version = answer; q3(); });
+    // let q2 = () => readA.question('version: (1.0.0) ',
+    //     (answer) => { if (answer) data.version = answer; q3(); });
 
     let q3 = () => readA.question('description: (A simple node based API) ',
         (answer) => { if (answer) data.description = answer; q4(); });

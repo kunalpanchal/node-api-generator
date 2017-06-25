@@ -22,8 +22,10 @@ function createdirectory(dirName) {
         let suffix;
         while (true) {
             try {
-                fs.mkdirSync(dirName + (suffix ? suffix : ''));
-                process.chdir(dirName + (suffix ? suffix : ''));
+                let projectName = dirName + (suffix ? suffix : '');
+                fs.mkdirSync(projectName);
+                process.chdir(projectName);
+                data.projectName = projectName;
             } catch (err) {
                 if (err.code === 'EEXIST') {
                     suffix = suffix ? suffix + 1 : 1;

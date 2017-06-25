@@ -2,7 +2,7 @@ let data = require('./../data');
 
 module.exports = `{
   "name": "`+ data.projectName + `",
-  "version": "`+ data.version + `",
+  "version": "1.0.0",
   "description": "`+ data.description + `",
   "main": "`+ data.entry_point + `",
   "scripts": {

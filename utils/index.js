@@ -1,6 +1,7 @@
 'use strict'
 
 const path = require('path');
+const data = require('./../constants/data');
 module.exports = {
     getCurDirName: () => {
         return process.cwd().split(path.sep).slice(-1);
@@ -13,11 +14,13 @@ module.exports = {
             detached: true
         });
         child.stdout.on('data', function (buffer) {
-            console.log('\x1b[33m' + buffer.toString());
+            console.log('\x1b[33m' + buffer.toString() + '\x1b[0m');
         });
 
-
-        child.unref()
-        console.log('\nRunning' + '\x1b[31m npm install\x1b[0m' + ' for you\n');
+        child.stdout.on('close', function () {
+            console.log('Your project ' + data.projectName + ' is ready.');
+            console.log('Run command' + '\x1b[31m npm start\x1b[0m' + ' to start the project.');
+        });
+        console.log('\nRunning' + '\x1b[31m npm install\x1b[0m' + ' for you.\n');
     },
 }
